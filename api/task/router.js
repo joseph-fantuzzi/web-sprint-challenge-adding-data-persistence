@@ -24,4 +24,14 @@ router.post("/", (req, res, next) => {
     });
 });
 
+router.delete("/:id", (req, res, next) => {
+  Tasks.deleteTask(req.params.id)
+    .then((deletedTask) => {
+      res.status(200).json(deletedTask);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;

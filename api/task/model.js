@@ -42,7 +42,15 @@ const createTask = async (task) => {
   return newTask;
 };
 
+const deleteTask = async (id) => {
+  const deletedTask = await db("tasks").where("task_id", id).first();
+  booleanHandler(deletedTask);
+  await db("tasks").where("task_id", id).del();
+  return deletedTask;
+};
+
 module.exports = {
   getTasks,
   createTask,
+  deleteTask,
 };

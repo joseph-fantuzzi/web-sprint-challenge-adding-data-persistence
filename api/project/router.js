@@ -24,4 +24,14 @@ router.post("/", (req, res, next) => {
     });
 });
 
+router.delete("/:id", (req, res, next) => {
+  Projects.deleteProject(req.params.id)
+    .then((deletedProject) => {
+      res.status(200).json(deletedProject);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;

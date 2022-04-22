@@ -24,4 +24,14 @@ router.post("/", (req, res, next) => {
     });
 });
 
+router.delete("/:id", (req, res, next) => {
+  Resources.deleteResource(req.params.id)
+    .then((deletedResource) => {
+      res.status(200).json(deletedResource);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;

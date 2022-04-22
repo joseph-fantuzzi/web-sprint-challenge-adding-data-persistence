@@ -33,7 +33,15 @@ const createProject = async (project) => {
   return newProject;
 };
 
+const deleteProject = async (id) => {
+  const deletedProject = await db("projects").where("project_id", id).first();
+  booleanHandler(deletedProject);
+  await db("projects").where("project_id", id).del();
+  return deletedProject;
+};
+
 module.exports = {
   getProjects,
   createProject,
+  deleteProject,
 };

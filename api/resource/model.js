@@ -11,7 +11,14 @@ const createResource = async (resource) => {
   return getResources().where("resource_id", id).first();
 };
 
+const deleteResource = async (id) => {
+  const deletedResource = await db("resources").where("resource_id", id).first();
+  await db("resources").where("resource_id", id).del();
+  return deletedResource;
+};
+
 module.exports = {
   getResources,
   createResource,
+  deleteResource,
 };
