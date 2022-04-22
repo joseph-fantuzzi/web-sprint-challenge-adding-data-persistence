@@ -69,20 +69,25 @@ Build the migration(s) in Knex inside the `data/migrations` folder using appropr
 Build an API inside the `api` folder with endpoints for:
 
 - [ ] `[POST] /api/resources`
+
   - Example of response body: `{"resource_id":1,"resource_name":"foo","resource_description":null}`
 
 - [ ] `[GET] /api/resources`
+
   - Example of response body: `[{"resource_id":1,"resource_name":"foo","resource_description":null}]`
 
 - [ ] `[POST] /api/projects`
+
   - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}`
 
 - [ ] `[GET] /api/projects`
+
   - Even though `project_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `[{"project_id":1,"project_name":"bar","project_description":null,"project_completed":false}]`
 
 - [ ] `[POST] /api/tasks`
+
   - Even though `task_completed` is stored as an integer, the API uses booleans when interacting with the client
   - Example of response body: `{"task_id":1,"task_description":"baz","task_notes":null,"task_completed":false,"project_id:1}`
 
@@ -111,6 +116,17 @@ Build an API inside the `api` folder with endpoints for:
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+
+   A Relational Database Management System (RDBMS) is a program that allows you to create, update, and administer a relational database, which is a table-based data structure database. Most relational database management systems use the SQL language to access the database. SQL is a domain-specific programming language to query, update, create, and delete data held in a relational database.
+
 2. Why do tables need a Primary Key?
+
+   Tables need a primary key to identify each record (row) in a database table. This ensures row-level accessibility. Ultimately, this allows you to query each table row individually and modify each row without changing other rows in the same table.
+
 3. What is the name given to a table column that references the Primary Key on another table?
+
+   A table column that references the primary key on another table is called a foreign key. Foreign keys allow for multiple tables to be connected through JOINS.
+
 4. What do we need in order to have a _many to many_ relationship between two tables?
+
+   In order to have a many-to-many relationship between two tables, a third table must be created called the intermediary table that holds foreign keys that reference the primary keys on the related tables. Each combination of keys on the intermediary table must be unique.
